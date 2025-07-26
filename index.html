@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pickleball Scoreboard</title>
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 40px;
+    }
+    h1 {
+      font-size: 5em;
+      margin: 0.2em;
+    }
+    .serve {
+      font-size: 2em;
+      margin-top: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="score">0 – 0</h1>
+  <div class="serve" id="serve">Serve: A</div>
+
+  <script>
+    const dbUrl = 'https://pickleballscoreboard-d7180-default-rtdb.firebaseio.com/game.json';
+
+    async function refresh() {
+      const res = await fetch(dbUrl);
+      const game = await res.json();
+      document.getElementById('score').innerText = `${game.teamA} – ${game.teamB}`;
+      document.getElementById('serve').innerText = `Serve: ${game.serve}`;
+    }
+
+    refresh();
+    setInterval(refresh, 1000);
+  </script>
+</body>
+</html>
