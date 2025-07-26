@@ -11,18 +11,22 @@
       padding-top: 40px;
     }
     h1 {
-      font-size: 5em;
+      font-size: 12vw; /* Increased for iPad screen */
       margin: 0.2em;
     }
     .serve {
-      font-size: 2em;
+      font-size: 5vw; /* Increased for iPad screen */
       margin-top: 0.5em;
+    }
+    @media (max-width: 900px) {
+      h1 { font-size: 15vw; }
+      .serve { font-size: 7vw; }
     }
   </style>
 </head>
 <body>
   <h1 id="score">0 – 0</h1>
-  <div class="serve" id="serve">Serve: A</div>
+  <div class="serve" id="serve">Serve: 2</div>
 
   <script>
     const dbUrl = 'https://pickleballscoreboard-d7180-default-rtdb.firebaseio.com/game.json';
