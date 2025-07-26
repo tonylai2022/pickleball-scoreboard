@@ -11,12 +11,12 @@
       padding-top: 40px;
     }
     h1 {
-      font-size: 12vw; /* Increased for iPad screen */
+      font-size: 24vw; /* Increased for iPad screen */
       margin: 0.2em;
     }
     .serve {
-      font-size: 5vw; /* Increased for iPad screen */
-      margin-top: 0.5em;
+      font-size: 24vw; /* Increased for iPad screen */
+      margin-top: 0.3em;
     }
     @media (max-width: 900px) {
       h1 { font-size: 15vw; }
@@ -35,7 +35,7 @@
       const res = await fetch(dbUrl);
       const game = await res.json();
       document.getElementById('score').innerText = `${game.teamA} – ${game.teamB}`;
-      document.getElementById('serve').innerText = `Serve: ${game.serve}`;
+      document.getElementById('serve').innerText = `${game.serve}`;
     }
 
     refresh();
